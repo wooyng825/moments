@@ -1,0 +1,397 @@
+@import url('./web-font.css');
+
+:root {
+    --light-color: white;
+    --dark-color: black;
+    --grey-color: grey;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'GyeonggiBatang';
+    margin: 0;
+    min-height: 100%;
+    color: var(--light-color) !important;
+    overflow: hidden;
+}
+
+body>img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100vw;
+    height: 100vh;
+    filter: brightness(50%);
+}
+
+body>#container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* ------------------------------------ */
+/* body 내부 스타일 */
+/* ------------------------------------ */
+
+:is(body, div) div {
+    display: flex;
+    justify-content: space-between;
+}
+
+@keyframes sizeUpScale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sizeDownScale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.88);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* ------------------------------------ */
+/* center-contents */
+/* ------------------------------------ */
+
+:is(body, div) div[id="center-contents"] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+}
+
+:is(body, div, div) div[id="date-section"],
+:is(body, div, div) div[id="time-section"],
+:is(body, div, div) div[id="quote-section"] {
+    margin: 0 auto;
+}
+
+:is(body, div, div) div[id="date-section"] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 4rem;
+    transition: all 0.2s ease-in;
+    font-family: 'GyeonggiTitleM';
+}
+
+:is(body, div, div, div[id="date-section"]) span[id="date"],
+:is(body, div, div, div[id="date-section"]) span[id="day"] {
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+:is(body, div, div, div[id="date-section"]) span[id="date"] {
+    color: yellow;
+
+}
+
+:is(body, div, div, div[id="date-section"]) span[id="day"] {
+    text-shadow: -1px 0px var(--light-color), 0px 1px var(--light-color), 1px 0px var(--light-color), 0px -1px var(--light-color);
+}
+
+
+:is(body, div, div) div[id="date-section"]:hover {
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+:is(body, div, div) div[id="time-section"] {
+    font-size: 1.6rem;
+    transition: all 0.2s ease-in;
+    filter: brightness(60%);
+    font-family: 'GyeonggiTitleM';
+}
+
+:is(body, div, div) div[id="time-section"]:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+    filter: brightness(120%);
+}
+
+:is(body, div, div) div[id="quote-section"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+
+    font-style: italic;
+    text-align: center;
+    transition: all 0.2s ease-in;
+}
+
+:is(body, div, div) div[id="quote-section"]:hover {
+    transform: scale(1.02);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+:is(body, div, div, div[id="quote-section"]) div[id="quote"] {
+    font-size: 1.05rem;
+    line-height: 160%;
+}
+
+:is(body, div, div, div[id="quote-section"]) div[id="author"] {
+    font-size: 0.75rem;
+}
+
+
+/* ------------------------------------ */
+/* top-contents */
+/* ------------------------------------ */
+
+.hidden {
+    display: none !important;
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) form#user-form {
+    display: flex;
+    align-items: center;
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) div#on-btn,
+:is(body, div, div[id="top-contents"], div[id="user-section"]) div#off-btn {
+    filter: brightness(60%);
+    transition: all 0.2s ease-in;
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) div#off-btn {
+    margin: 10px;
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) div#on-btn:hover,
+:is(body, div, div[id="top-contents"], div[id="user-section"]) div#off-btn:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+    transform: scale(1.04);
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) h2#greeting {
+    display: flex;
+    margin: 0;
+    align-items: center;
+
+    font-style: italic;
+    animation: fadeInFromTop 1s;
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) h2>span {
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) h2>span:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+:is(body, div, div[id="top-contents"], div[id="user-section"]) h2>div:hover {
+    cursor: pointer;
+}
+
+:is(body, div, div[id="top-contents"], div, form) input {
+    margin: 10px;
+
+    font-size: 1.35rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    filter: brightness(120%);
+    transition: all 0.2s ease-in-out;
+}
+
+:is(body, div, div[id="top-contents"]) #user-section input:hover,
+:is(body, div, div[id="top-contents"]) #user-section input:focus {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 10px;
+
+    font-weight: bold;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+:is(body, div, div) div[id="refresh-btn"] {
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+    filter: brightness(60%);
+}
+
+:is(body, div, div) div[id="refresh-btn"]:hover {
+    cursor: pointer;
+    animation: rotation 1.5s infinite;
+    filter: brightness(100%);
+}
+
+
+/* ------------------------------------ */
+/* bottom-contents */
+/* ------------------------------------ */
+
+:is(body, div, div[id="bottom-contents"]) #todo-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+:is(body, div, div[id="bottom-contents"]) #todo-section input {
+    font-size: 1.35rem;
+    margin: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+:is(body, div, div[id="bottom-contents"]) #todo-section input:hover,
+:is(body, div, div[id="bottom-contents"]) #todo-section input:focus {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 8px 12px;
+
+
+    font-weight: bold;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+:is(body, div, div[id="bottom-contents"]) #todo-list {
+    padding: 0;
+    margin: 0 10px;
+}
+
+:is(body, div, div[id="bottom-contents"]) #todo-list>li {
+    display: flex;
+    justify-content: space-between;
+    filter: brightness(60%);
+    margin: 10px 0;
+}
+
+:is(body, div, div[id="bottom-contents"]) #todo-list>li:hover {
+    cursor: pointer;
+    filter: brightness(100%);
+}
+
+:is(body, div, div[id="bottom-contents"]) #todo-list div:hover {
+    cursor: pointer;
+}
+
+.showAll {
+    transform: translateY(0px) !important;
+}
+
+:is(body, div) div[id="bottom-contents"] {
+    align-items: end;
+}
+
+:is(body, div, div) div[id="weather-section"] {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    transform: translateY(80px);
+    transition: all 0.2s ease-in-out;
+
+    filter: brightness(60%);
+    font-size: 0.8rem;
+    color: var(--light-color);
+}
+
+:is(body, div, div) div[id="weather-section"]:hover {
+    filter: brightness(100%);
+    cursor: pointer;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+div[id="weather-location"]:hover,
+div[id="weather-icon"]:hover,
+div[id="weather-temps"]:hover,
+div[id="temp_max"]:hover,
+div[id="temp_min"]:hover,
+div[id="wind_speed"]:hover,
+div[id="humidity"]:hover {
+    cursor: pointer;
+    font-weight: bold;
+    animation: sizeUpScale 1.5s infinite;
+}
+
+:is(div[id="weather-section"]) div[id="weather-main"] {
+    margin: 10px auto;
+    align-items: center;
+}
+
+:is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+:is(div[id="weather-section"]) div[id="weather-location"] {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+:is(div[id="weather-section"]) div[id="weather-others"] {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+:is(div[id="weather-section"], div[id="weather-others"]) div[id="other-temps"],
+:is(div[id="weather-section"], div[id="weather-others"]) div[id="others"] {
+    display: flex;
+    flex-direction: column;
+}
