@@ -51,7 +51,7 @@ const format = {
     weather: {
         'Clear': 'clear',  // --- 맑음
         'Clouds': 'clouds',  // --- 구름
-        'Drizzle': 'drizzle ',  // --- 안개비
+        'Drizzle': 'drizzle',  // --- 안개비
         'Rain': 'rain',  // --- 비
         'Snow': 'snow',  // --- 눈
         'Tornado': 'tornado',  // --- 태풍
