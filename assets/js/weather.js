@@ -95,8 +95,6 @@ function locSuccess(position) {
             'humidity': result.main.humidity
         }
 
-        weatherSection.style.padding = '10px 20px';
-
         Object.keys(weatherData).forEach((key, index) => {
             let keys = document.createElement('div');
             let values = document.createElement('span');
@@ -122,12 +120,10 @@ function locSuccess(position) {
                         switch (key) {
                             case 'temp':
                                 keys.innerText = `${Math.round(weatherData[key])}℃`;
-                                keys.style.fontSize = '1.8rem';
                                 weatherTemps.appendChild(keys);
                                 break;
                             case 'feels_like':
                                 keys.innerText = `(체감 : ${Math.round(weatherData[key])}℃)`;
-                                keys.style.fontSize = '0.6rem';
                                 weatherTemps.appendChild(keys);
                                 break;
                             default:
@@ -159,8 +155,6 @@ function locSuccess(position) {
                     case 'icons':
                         const iconImage = document.createElement('img');
                         iconImage.src = `./assets/images/icons/${format.weather[weatherData[key]]}.gif`;
-                        iconImage.style.margin = '0 auto';
-                        iconImage.style.width = '8rem';
                         weatherIcon.appendChild(iconImage);
                         break;
                 }

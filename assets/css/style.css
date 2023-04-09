@@ -18,14 +18,19 @@ body {
     overflow: hidden;
 }
 
+hr {
+    width: 30rem;
+}
+
 body>img {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
 
-    width: 100vw;
-    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     filter: brightness(50%);
 }
 
@@ -137,7 +142,6 @@ body>#container {
 
 :is(body, div, div, div[id="date-section"]) span[id="date"] {
     color: yellow;
-
 }
 
 :is(body, div, div, div[id="date-section"]) span[id="day"] {
@@ -385,7 +389,9 @@ body>#container {
 
 :is(body, div, div) div[id="weather-section"] {
     display: flex;
+    width: 200px;
     flex-direction: column;
+    padding: 10px 20px;
     border-radius: 10px;
     transform: translateY(80px);
     transition: all 0.2s ease-in-out;
@@ -415,8 +421,14 @@ div[id="humidity"]:hover {
 }
 
 :is(div[id="weather-section"]) div[id="weather-main"] {
-    margin: 10px auto;
+    margin: 10px;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+:is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-icon"]>img {
+    width: 8rem;
+    margin: 0 auto;
 }
 
 :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"] {
@@ -425,6 +437,15 @@ div[id="humidity"]:hover {
     justify-content: center;
     align-items: center;
 }
+
+:is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#temp {
+    font-size: 1.8rem;
+}
+
+:is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#feels_like {
+    font-size: 0.6rem;
+}
+
 
 :is(div[id="weather-section"]) div[id="weather-location"] {
     display: flex;
@@ -443,4 +464,331 @@ div[id="humidity"]:hover {
 :is(div[id="weather-section"], div[id="weather-others"]) div[id="others"] {
     display: flex;
     flex-direction: column;
+}
+
+
+
+
+/* 768px ~ 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    hr {
+        width: 24rem;
+    }
+
+    :is(body, div, div, div[id="date-section"]) span[id="date"],
+    :is(body, div, div, div[id="date-section"]) span[id="day"] {
+        margin: 0 7.5px;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="date-section"] {
+        font-size: 3.2rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="time-section"] {
+        font-size: 1.4rem;
+    }
+
+    :is(div[id="top-contents"], div[id="user-section"]) form>div#on-btn>svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    :is(div[id="top-contents"]) div#refresh-btn>svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) div[id="weather-section"] {
+        padding: 8px 16px;
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-main"] {
+        margin: 8px;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-icon"]>img {
+        width: 7rem;
+        margin: 0 auto;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#temp {
+        font-size: 1.6rem;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#feels_like {
+        font-size: 0.6rem;
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-location"] {
+        font-size: 0.9rem;
+    }
+}
+
+/* 500px ~ 768px */
+@media screen and (min-width: 500px) and (max-width: 768px) {
+    hr {
+        width: 18rem;
+    }
+
+    :is(body, div, div, div[id="date-section"]) span[id="date"],
+    :is(body, div, div, div[id="date-section"]) span[id="day"] {
+        margin: 0 5px;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="date-section"] {
+        font-size: 2.4rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="time-section"] {
+        font-size: 1.4rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"] {
+        word-break: keep-all;
+        margin: 1.6rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"]>div#quote {
+        font-size: 0.9rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"]>div#author {
+        font-size: 0.6rem;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #user-section input {
+        font-size: 1.2rem;
+    }
+
+    :is(div[id="top-contents"], div[id="user-section"]) form>div#on-btn>svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    :is(div[id="top-contents"]) div#refresh-btn>svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #todo-section input {
+        font-size: 1.2rem;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #todo-section input:hover,
+    :is(body, div, div[id="bottom-contents"]) #todo-section input:focus {
+        cursor: pointer;
+        border-radius: 7.5px;
+        padding: 6px 8px;
+
+        font-weight: bold;
+        color: var(--dark-color);
+        background-color: var(--light-color);
+    }
+
+    :is(body, div, div[id="bottom-contents"]) div[id="weather-section"] {
+        width: 180px;
+        padding: 6px 12px;
+        transform: translateY(68px);
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-main"] {
+        margin: 6px;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-icon"]>img {
+        width: 6rem;
+        margin: 0 auto;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#temp {
+        font-size: 1.4rem;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#feels_like {
+        font-size: 0.5rem;
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-location"] {
+        font-size: 0.8rem;
+    }
+}
+
+/* 345px ~ 500px */
+@media screen and (min-width: 345px) and (max-width: 500px) {
+    hr {
+        width: 12rem;
+    }
+
+    :is(body, div, div, div[id="date-section"]) span[id="date"],
+    :is(body, div, div, div[id="date-section"]) span[id="day"] {
+        margin: 0 2.5px;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="date-section"] {
+        font-size: 1.8rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="time-section"] {
+        font-size: 1.2rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"] {
+        word-break: keep-all;
+        margin: 1.2rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"]>div#quote {
+        font-size: 0.9rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"]>div#author {
+        font-size: 0.6rem;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #user-section input {
+        font-size: 1.1rem;
+    }
+
+    :is(div[id="top-contents"], div[id="user-section"]) form>div#on-btn>svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    :is(div[id="top-contents"]) div#refresh-btn>svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #todo-section input {
+        font-size: 1.1rem;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #todo-section input:hover,
+    :is(body, div, div[id="bottom-contents"]) #todo-section input:focus {
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 4px 6px;
+
+        font-weight: bold;
+        color: var(--dark-color);
+        background-color: var(--light-color);
+    }
+
+    :is(body, div, div[id="bottom-contents"]) div[id="weather-section"] {
+        width: 160px;
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        transform: translateY(60px);
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-main"] {
+        margin: 4px;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-icon"]>img {
+        width: 5rem;
+        margin: 0 auto;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#temp {
+        font-size: 1.2rem;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#feels_like {
+        font-size: 0.5rem;
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-location"] {
+        font-size: 0.7rem;
+    }
+}
+
+/* ~345px */
+@media screen and (max-width: 345px) {
+    hr {
+        width: 8rem;
+    }
+
+    :is(body, div, div, div[id="date-section"]) span[id="date"],
+    :is(body, div, div, div[id="date-section"]) span[id="day"] {
+        margin: 0 1.5px;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="date-section"] {
+        font-size: 1.4rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="time-section"] {
+        font-size: 1rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"] {
+        word-break: keep-all;
+        margin: 0.8rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"]>div#quote {
+        font-size: 0.75rem;
+    }
+
+    :is(body, div, div[id="center-contents"]) div[id="quote-section"]>div#author {
+        font-size: 0.45rem;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #user-section input {
+        font-size: 1rem;
+    }
+
+    :is(div[id="top-contents"], div[id="user-section"]) form>div#on-btn>svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    :is(div[id="top-contents"]) div#refresh-btn>svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #todo-section input {
+        font-size: 1rem;
+    }
+
+    :is(body, div, div[id="bottom-contents"]) #todo-section input:hover,
+    :is(body, div, div[id="bottom-contents"]) #todo-section input:focus {
+        cursor: pointer;
+        border-radius: 2.5px;
+        padding: 2px 6px;
+
+        font-weight: bold;
+        color: var(--dark-color);
+        background-color: var(--light-color);
+    }
+
+    :is(body, div, div[id="bottom-contents"]) div[id="weather-section"] {
+        width: 140px;
+        font-size: 0.6rem;
+        padding: 2px 4px;
+        transform: translateY(54px);
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-main"] {
+        margin: 2px;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-icon"]>img {
+        width: 4rem;
+        margin: 0 auto;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#temp {
+        font-size: 1rem;
+    }
+
+    :is(div[id="weather-section"], div[id="weather-main"]) div[id="weather-temps"]>div#feels_like {
+        font-size: 0.4rem;
+    }
+
+    :is(div[id="weather-section"]) div[id="weather-location"] {
+        font-size: 0.6rem;
+    }
 }

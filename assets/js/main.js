@@ -1,10 +1,11 @@
 const userSection = document.querySelector('div#user-section');
 const userForm = userSection.querySelector('form#user-form');
-const userInput = userForm.querySelector('input')
-const onBtn = userForm.querySelector('div#on-btn');
+const userInput = userSection.querySelector('input');
 const greeting = userSection.querySelector('h2#greeting');
 
 const greetingText = document.createElement('span');
+const onBtn = document.createElement('div');
+const onIcon = document.createElement('i');
 const offBtn = document.createElement('div');
 const offIcon = document.createElement('i');
 
@@ -13,6 +14,14 @@ const USERNAME = 'user_name'
 const HIDDEN_CLASSNAME = 'hidden';
 
 let username = "";
+
+function makeOnBtn() {
+    onBtn.id = 'on-btn';
+    onIcon.className = 'fa-solid fa-right-to-bracket fa-xl';
+
+    userForm.appendChild(onBtn);
+    onBtn.appendChild(onIcon);
+}
 
 
 function saveUserName() {
@@ -51,6 +60,7 @@ function handleSubmit(event) {
     }
 }
 
+makeOnBtn();
 onBtn.addEventListener('click', handleSubmit);
 userForm.addEventListener('submit', handleSubmit);
 

@@ -20,6 +20,25 @@ let initValue = '';
 const SELECTED = 'selected';
 const STARED = 'stared';
 
+function handleResize() {
+    if (window.innerWidth > 1024) {
+        todoInput.size = 10;
+    }
+    else if (window.innerWidth > 768 && window.innerWidth <= 1024) {
+        todoInput.size = 9;
+    }
+    else if (window.innerWidth > 500 && window.innerWidth <= 768) {
+        todoInput.size = 8;
+    }
+    else if (window.innerWidth > 345 && window.innerWidth <= 500) {
+        todoInput.size = 6;
+    }
+    else {
+        todoInput.size = 4;
+    }
+}
+window.addEventListener('resize', handleResize);
+
 
 let todos = [];
 const TODOS = 'todos';
@@ -48,6 +67,7 @@ function removeTodo(event) {
         saveTodos();
     }
 }
+
 
 /**
  * 입력된 Todo <li> 태그 중 버튼을 누른 태그 선명하게 & 상단으로 위치하는 함수.
