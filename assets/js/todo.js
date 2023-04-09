@@ -10,7 +10,7 @@ newForm.style.width = '64%';
 newInput.id = 'edit-input';
 newInput.type = 'text';
 newInput.style.fontSize = '0.88rem';
-newInput.style.padding = '1px 0';
+newInput.style.padding = '2px 0';
 newInput.style.margin = '0';
 newInput.style.borderRadius = '5px';
 newInput.style.width = '100%';
@@ -111,6 +111,8 @@ function editTodo(event) {
         case true:
             initValue = editList.children[1].innerText;
             editList.children[1].remove();
+            newInput.value = initValue;
+
             newForm.appendChild(newInput);
             editList.children[0].after(newForm);
             break;
@@ -177,6 +179,9 @@ function drawTodo(newTodo) {
     deleteIcon.className = "fa-solid fa-trash";
     deleteBtn.className = 'delete-btn';
 
+    editBtn.classList.add(HIDDEN_CLASSNAME);
+    deleteBtn.classList.add(HIDDEN_CLASSNAME);
+
     if ((newLi.className).includes('selected')) {
         newLi.classList.add(SELECTED);
         starBtn.classList.add(STARED);
@@ -191,6 +196,14 @@ function drawTodo(newTodo) {
     deleteBtn.appendChild(deleteIcon);
 
     newLi.append(starBtn, newSpan, editBtn, deleteBtn);
+    newLi.addEventListener('mouseenter', function () {
+        editBtn.classList.remove(HIDDEN_CLASSNAME);
+        deleteBtn.classList.remove(HIDDEN_CLASSNAME);
+    });
+    newLi.addEventListener('mouseleave', function () {
+        editBtn.classList.add(HIDDEN_CLASSNAME);
+        deleteBtn.classList.add(HIDDEN_CLASSNAME);
+    });
     starBtn.addEventListener('click', starTodo);
     editBtn.addEventListener('click', editTodo);
     deleteBtn.addEventListener('click', removeTodo);

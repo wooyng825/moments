@@ -126,6 +126,7 @@ body>#container {
     font-size: 4rem;
     transition: all 0.2s ease-in;
     font-family: 'GyeonggiTitleM';
+    filter: brightness(80%);
 }
 
 :is(body, div, div, div[id="date-section"]) span[id="date"],
