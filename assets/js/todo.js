@@ -12,7 +12,7 @@ newInput.type = 'text';
 newInput.style.fontSize = '0.88rem';
 newInput.style.padding = '2px 0';
 newInput.style.margin = '0';
-newInput.style.borderRadius = '5px';
+newInput.style.borderRadius = '2px';
 newInput.style.width = '100%';
 let editList;
 let initValue = '';
@@ -22,21 +22,22 @@ const STARED = 'stared';
 
 function handleResize() {
     if (window.innerWidth > 1024) {
-        todoInput.size = 10;
+        todoInput.size = 12;
     }
     else if (window.innerWidth > 768 && window.innerWidth <= 1024) {
-        todoInput.size = 9;
+        todoInput.size = 11;
     }
     else if (window.innerWidth > 500 && window.innerWidth <= 768) {
-        todoInput.size = 8;
+        todoInput.size = 10;
     }
     else if (window.innerWidth > 345 && window.innerWidth <= 500) {
-        todoInput.size = 6;
+        todoInput.size = 8;
     }
     else {
         todoInput.size = 4;
     }
 }
+handleResize();
 window.addEventListener('resize', handleResize);
 
 
